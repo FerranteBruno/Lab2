@@ -82,22 +82,28 @@ Trainings call_training(){
 
     cin.ignore();
     //validacion de Nombre y apellido
+
+    int auxID;
     cout << "ID del usuario : ";
     cin >> reg.userID;
+    auxID = reg.userID;
+    int flag_ok = 1;
 
-    /*** TODO: Requiere validacion de usuario, nueva funcion
-    while(*reg.name == '\0'){
-        cout<<"Ingrese nombre nuevamente :";
-        cin.getline(reg.name, 50);
-    }*/
+    ///Funcion que se encarga de verificar que exista el usuario en users.dat
+    check_userID(auxID, flag_ok);
 
+    if(flag_ok == 0){
+        cout << "El usuario no pudo ser validado..." << endl;
+
+        return reg = {};
+    }
 
     ///TODO Verifcar fecha de entrenamiento.
     int flag = 0;
-    int flag_age = 0;
+    int flag_today = 0;
 
-    while(flag == 0){
-
+    ///Validación de fecha, podría ser función...
+    while(flag_today == 0){
 
     cout << "Ingrese fecha del entrenamiento: " << endl;
     cout << "Día: ";
@@ -108,18 +114,17 @@ Trainings call_training(){
     cin >> reg.trainingDate.year;
 
     call_training_date(reg.trainingDate, flag, flag_today);
-
     }
 
-    while(flag_today != 1){
+    if(flag_today != 1){
 
     reg.t_status = 0;
 
-    cout << "Fecha invalida! Ingrese una fecha correcta";
+    cout << "Fecha invalida! Ingrese una fecha correcta" << endl;
 
-    call_training_date(reg.trainingDate, flag, flag_today)
+    call_training_date(reg.trainingDate, flag, flag_today);
 
-    return reg;
+    return reg={};
 
     }
 /// TERMINA FECHAS
@@ -127,20 +132,37 @@ Trainings call_training(){
 ///TODO VALIDACION DE APTO FISICO
     cout << "Actividad (1,2,3,4,5): ";
     cin >> reg.t_activity;
+    int auxTA ;
+    auxTA = reg.t_activity;
+
     while (reg.t_activity != 1 && reg.t_activity != 2 && reg.t_activity  != 3 && reg.t_activity  != 4 && reg.t_activity  != 5){
         cout << endl <<  "Actividad Incorrecta!\n Ingrese nueva actividad: "  << endl;
         cin >> reg.t_activity;
     }
 
+    ///Función que chekea el apto físico para 4 y 5 con user.dat
+    check_medicalFit(auxTA, auxID, flag_ok);
+
+    if(flag_ok == 0){
+            cout << "No tiene el apto físico para esta actividad" << endl;
+
+            return reg = {};
+        }
+
     cout << "Calorias: ";
     cin >>reg.calories;
-    /*while ((MF != 0) && (MF != 1)){
-        cout << endl <<  "Ingrese de nuevo\n Apto Medico (1 Aprobado, 0 desaprobado): " << endl;
-        cin >> MF;
-    }*/
+    while (reg.calories < 1){
+        cout << endl <<  "Calorias incorrectas, vuelva a ingresar un numero válido: "  << endl;
+        cin >> reg.t_activity;
+    }
 
     cout << "Tiempo en minutos: ";
     cin >>reg.timemin;
+
+    while (reg.timemin < 1){
+        cout << endl <<  "Tiempo incorrecto, vuelva a ingresar un numero válido: "  << endl;
+        cin >> reg.t_activity;
+    }
 
     reg.t_status = true;
 
@@ -166,21 +188,17 @@ bool mod_training(){
 
         cout << "Calorias: ";
         cin >> reg.calories;
-        /*while (reg.activity != 'A' && reg.activity != 'B' && reg.activity != 'C' && reg.activity != 'a' && reg.activity != 'b' && reg.activity != 'c'){
-            cout << endl <<  "Actividad Incorrecta!\n Ingrese nueva actividad: "  << endl;
-            cin >> reg.activity;
+        while (reg.calories < 1){
+            cout << endl <<  "Calorias incorrectas, vuelva a ingresar un numero válido: "  << endl;
+            cin >> reg.calories;
         }
 
-        int MF = 0;
         cout << "Apto Medico (1 Aprobado, 0 desaprobado): ";
-        cin >>MF;
-        while ((MF != 0) && (MF != 1)){
-            cout << endl <<  "Ingrese de nuevo\n Apto Medico (1 Aprobado, 0 desaprobado): " << endl;
-            cin >> MF;
+        cin >>reg.timemin;
+        while (reg.timemin < 1){
+            cout << endl <<  "Tiempo incorrecto, vuelva a ingresar un numero válido: "  << endl;
+            cin >> reg.timemin;
         }
-
-        reg.medicalFit = MF;
-        */
 
 
         if (save_training(reg, pos) == true){
@@ -230,6 +248,9 @@ bool save_training(Trainings reg){
     FILE *f;
     f = fopen(FILE_TRAININGS, "ab");
     if (f == NULL){
+        return false;
+    }
+    if (reg.ID == 0){
         return false;
     }
     saved = fwrite(&reg, sizeof(Trainings), 1, f);
@@ -293,8 +314,84 @@ bool delete_training(){
 
 }
 
-void list_trainings_by_idUser(){
+void list_trainings_by_userID(){
 
+    cls();
+    title("LISTADO DE ENTRENAMIENTOS x ID");
+    gotoxy(1, 5);
+    int ID, pos;
+    int flagg = 1;
+    cout << "Código de usuario: ";
+    cin >> ID;
+    pos = search_user(ID);
+    cout << pos << endl;
+
+    if (pos >= 0){
+    cout << "El usuario elegido es: " << endl;
+        show_user(read_user(pos));
+        cout << "/-----------------------------------\\"<< endl;
+        cout << endl;
+    }
+    else{
+        msj("Código de usuario invalido", 15, 3);
+        flagg = 0;
+        cout << endl;
+    }
+
+    if (flagg == 1){
+        int cant =  quantity_of_trainings();
+            for(int i = 0; i<cant; i++){
+                Trainings reg = read_training(i);
+                    if ((reg.userID == pos+1) && (reg.t_status = true)){
+                        show_training(reg);
+                        cout << "-----------------------------------"<< endl;
+                        cout << endl;
+
+                }
+            }
+        }
+        else{
+            msj("No existe el Entrenamiento", 15, 3);
+        }
+}
+
+void check_userID(int ID, int &flag){
+    cls();
+    title("VERIFICACION DE USUARIO");
+    gotoxy(1, 5);
+    int  pos;
+    pos = search_user(ID);
+    if (pos >= 0){
+    cout << "El usuario elegido es: " << endl;
+        show_user(read_user(pos));
+    }
+    else{
+        msj("Código de usuario invalido", 15, 3);
+        flag = 0;
+    }
+}
+
+void check_medicalFit(int Act, int ID, int &flag){
+    cls();
+    title("VERIFICACION DE APTO FÍSICO");
+    gotoxy(1, 5);
+    int  pos;
+    pos = search_user(ID);
+    if (pos >= 0 && (Act == 4 || Act == 5)){
+        User reg = read_user(pos);
+
+        if(reg.medicalFit != 1){
+        msj("APTO FÍSICO DESAPROBADO", 15, 3);
+        flag = 0;
+        }
+        else
+        {msj("APTO FÍSICO APROBADO", 15, 3);
+        }
+    }
+    else{
+        msj("Código de usuario invalido", 15, 3);
+        flag = 0;
+    }
 }
 
 

@@ -63,12 +63,13 @@
 	<cstdio>
 	<ctime>
 
-1599773252 source:/home/utn-discord/UTN/Lab2/TP2/LARA/date.cpp
+1600315680 source:/home/utn-discord/UTN/Lab2/TP2/LARA/date.cpp
 	<iostream>
 	"date.h"
 	"user.h"
+	"trainings.h"
 
-1599773200 /home/utn-discord/UTN/Lab2/TP2/LARA/date.h
+1600302939 /home/utn-discord/UTN/Lab2/TP2/LARA/date.h
 
 1599768750 /home/utn-discord/UTN/Lab2/TP2/LARA/user.h
 	"date.h"
@@ -78,7 +79,7 @@
 
 1600301871 /home/utn-discord/UTN/Lab2/TP2/LARA/mainMenu.h
 
-1600301885 source:/home/utn-discord/UTN/Lab2/TP2/LARA/mainMenu.cpp
+1600320346 source:/home/utn-discord/UTN/Lab2/TP2/LARA/mainMenu.cpp
 	<iostream>
 	"ui.h"
 	"rlutil.h"
@@ -115,10 +116,10 @@
 	"rlutil.h"
 	"user.h"
 
-1600301966 /home/utn-discord/UTN/Lab2/TP2/LARA/trainings.h
+1600319939 /home/utn-discord/UTN/Lab2/TP2/LARA/trainings.h
 	"date.h"
 
-1600302313 source:/home/utn-discord/UTN/Lab2/TP2/LARA/trainings.cpp
+1600322352 source:/home/utn-discord/UTN/Lab2/TP2/LARA/trainings.cpp
 	<iostream>
 	"string.h"
 	"ui.h"

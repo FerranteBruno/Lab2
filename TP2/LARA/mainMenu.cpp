@@ -64,7 +64,7 @@ void menuUsers(){
                     cout << "Usuario registrado.";
                 }
                 else{
-                    cout << "No se pudo registrar el Usuario.";
+                    cout << "No se pudo registrar el e.";
                 }
             break;
             case 2:
@@ -110,12 +110,18 @@ void menuTrainings(){
             case 1:
                 Trainings reg;
                 reg = call_training();
-                if(save_training(reg)){
-                    cout << "Usuario registrado.";
+                if(reg.userID != 0){
+                    if(save_training(reg)){
+                        cout << "Entrenamiento registrado." << endl;
+                    }
+                    else{
+                        cout << "No se pudo registrar el entrenamiento."<< endl;
+                    }
                 }
                 else{
-                    cout << "No se pudo registrar el Usuario.";
+                    cout << "No se pudo registrar el entrenamiento."<< endl;
                 }
+
             break;
             case 2:
                 mod_training();
@@ -124,7 +130,7 @@ void menuTrainings(){
                 list_trainings_by_id();
             break;
             case 4:
-                list_trainings_by_idUser();
+                list_trainings_by_userID();
             break;
             case 5:
                 list_trainings();
