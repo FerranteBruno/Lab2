@@ -41,6 +41,8 @@
 		<Unit filename="mainMenu.cpp" />
 		<Unit filename="mainMenu.h" />
 		<Unit filename="rlutil.h" />
+		<Unit filename="trainings.cpp" />
+		<Unit filename="trainings.h" />
 		<Unit filename="ui.cpp" />
 		<Unit filename="ui.h" />
 		<Unit filename="user.cpp" />

@@ -63,3 +63,66 @@
 	<cstdio>
 	<ctime>
 
+1599773252 source:/home/utn-discord/UTN/Lab2/TP2/LARA/date.cpp
+	<iostream>
+	"date.h"
+	"user.h"
+
+1599773200 /home/utn-discord/UTN/Lab2/TP2/LARA/date.h
+
+1599768750 /home/utn-discord/UTN/Lab2/TP2/LARA/user.h
+	"date.h"
+
+1599628730 source:/home/utn-discord/UTN/Lab2/TP2/LARA/main.cpp
+	"mainMenu.h"
+
+1600301871 /home/utn-discord/UTN/Lab2/TP2/LARA/mainMenu.h
+
+1600301885 source:/home/utn-discord/UTN/Lab2/TP2/LARA/mainMenu.cpp
+	<iostream>
+	"ui.h"
+	"rlutil.h"
+	"mainMenu.h"
+	"user.h"
+	"trainings.h"
+
+1599524863 /home/utn-discord/UTN/Lab2/TP2/LARA/ui.h
+
+1599524863 /home/utn-discord/UTN/Lab2/TP2/LARA/rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1599524863 source:/home/utn-discord/UTN/Lab2/TP2/LARA/ui.cpp
+	<iostream>
+	<cstring>
+	"ui.h"
+	"rlutil.h"
+
+1599773555 source:/home/utn-discord/UTN/Lab2/TP2/LARA/user.cpp
+	<iostream>
+	"string.h"
+	"ui.h"
+	"rlutil.h"
+	"user.h"
+
+1600301966 /home/utn-discord/UTN/Lab2/TP2/LARA/trainings.h
+	"date.h"
+
+1600302313 source:/home/utn-discord/UTN/Lab2/TP2/LARA/trainings.cpp
+	<iostream>
+	"string.h"
+	"ui.h"
+	"rlutil.h"
+	"trainings.h"
+	"user.h"
+

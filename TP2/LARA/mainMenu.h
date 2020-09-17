@@ -3,5 +3,6 @@
 
 void mainMenu();
 void menuUsers();
+void menuTrainings();
 
 #endif // MAINMENU_H_INCLUDED
