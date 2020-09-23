@@ -40,6 +40,8 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="mainMenu.cpp" />
 		<Unit filename="mainMenu.h" />
+		<Unit filename="report.cpp" />
+		<Unit filename="report.h" />
 		<Unit filename="rlutil.h" />
 		<Unit filename="trainings.cpp" />
 		<Unit filename="trainings.h" />

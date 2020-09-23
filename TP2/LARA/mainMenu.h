@@ -4,5 +4,6 @@
 void mainMenu();
 void menuUsers();
 void menuTrainings();
+void menuReports();
 
 #endif // MAINMENU_H_INCLUDED

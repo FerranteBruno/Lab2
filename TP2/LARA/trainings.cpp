@@ -371,27 +371,37 @@ void check_userID(int ID, int &flag){
     }
 }
 
-void check_medicalFit(int Act, int ID, int &flag){
+void check_medicalFit(int &Act, int &ID, int &flag){
     cls();
     title("VERIFICACION DE APTO FÍSICO");
     gotoxy(1, 5);
     int  pos;
     pos = search_user(ID);
-    if (pos >= 0 && (Act == 4 || Act == 5)){
-        User reg = read_user(pos);
 
-        if(reg.medicalFit != 1){
-        msj("APTO FÍSICO DESAPROBADO", 15, 3);
-        flag = 0;
+    if (pos >=0){
+        if(Act == 4 || Act == 5){
+            User reg = read_user(pos);
+            cout << pos;
+
+            if(reg.medicalFit != 1){
+            msj("APTO FÍSICO DESAPROBADO", 15, 3);
+            flag = 0;
+            }
+            else
+            {msj("APTO FÍSICO APROBADO", 15, 3);
+            }
+             msj("APTO FÍSICO APROBADO", 15, 3);
         }
-        else
-        {msj("APTO FÍSICO APROBADO", 15, 3);
+
+        msj("Código de usuario valido", 15, 3);
+
+        return;
         }
-    }
-    else{
-        msj("Código de usuario invalido", 15, 3);
-        flag = 0;
-    }
+        else{
+            msj("Código de usuario invalido", 15, 3);
+            flag = 0;
+        }
+
 }
 
 

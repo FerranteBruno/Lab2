@@ -6,6 +6,7 @@ using namespace rlutil;
 #include "mainMenu.h"
 #include "user.h"
 #include "trainings.h"
+#include "report.h"
 
 void mainMenu(){
     while(true){
@@ -30,6 +31,7 @@ void mainMenu(){
             menuTrainings();
             break;
             case 3:
+            menuReports();
             break;
             case 4:
             break;
@@ -80,6 +82,8 @@ void menuUsers(){
                 delete_user();
 
             break;
+            case 6:
+                menuReports();
             case 0:
                 return;
             break;
@@ -145,3 +149,30 @@ void menuTrainings(){
     }
 }
 
+void menuReports() {
+    while (true) {
+        cls();
+        title("MENÚ REPORTES", APP_TITLEFORECOLOR, APP_TITLEBACKCOLOR);
+        gotoxy(1, 5);
+        cout << "1 - REPORTE 1" << endl;
+        cout << "2 - REPORTE 2" << endl;
+        cout << "------------------" << endl;
+        cout << "0 - VOLVER" << endl;
+        int pos;
+        cout << endl << "> ";
+        cin >> pos;
+
+        switch (pos) {
+            case 1:
+                report1();
+            break;
+            case 2:
+                report2();
+            break;
+            case 0:
+                return;
+            break;
+        }
+        cin.ignore();
+    }
+}

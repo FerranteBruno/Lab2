@@ -26,6 +26,6 @@ void list_trainings_by_id();
 bool delete_training();
 void list_trainings_by_userID();
 void check_userID(int, int &);
-void check_medicalFit(int, int, int &flag);
+void check_medicalFit(int &, int &, int &flag);
 
 #endif // TRAININGS_H_INCLUDED

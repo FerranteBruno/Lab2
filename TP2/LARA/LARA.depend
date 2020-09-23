@@ -77,15 +77,16 @@
 1599628730 source:/home/utn-discord/UTN/Lab2/TP2/LARA/main.cpp
 	"mainMenu.h"
 
-1600301871 /home/utn-discord/UTN/Lab2/TP2/LARA/mainMenu.h
+1600829862 /home/utn-discord/UTN/Lab2/TP2/LARA/mainMenu.h
 
-1600320346 source:/home/utn-discord/UTN/Lab2/TP2/LARA/mainMenu.cpp
+1600838021 source:/home/utn-discord/UTN/Lab2/TP2/LARA/mainMenu.cpp
 	<iostream>
 	"ui.h"
 	"rlutil.h"
 	"mainMenu.h"
 	"user.h"
 	"trainings.h"
+	"report.h"
 
 1599524863 /home/utn-discord/UTN/Lab2/TP2/LARA/ui.h
 
@@ -116,14 +117,25 @@
 	"rlutil.h"
 	"user.h"
 
-1600319939 /home/utn-discord/UTN/Lab2/TP2/LARA/trainings.h
+1600837350 /home/utn-discord/UTN/Lab2/TP2/LARA/trainings.h
 	"date.h"
 
-1600322352 source:/home/utn-discord/UTN/Lab2/TP2/LARA/trainings.cpp
+1600837350 source:/home/utn-discord/UTN/Lab2/TP2/LARA/trainings.cpp
 	<iostream>
 	"string.h"
 	"ui.h"
 	"rlutil.h"
 	"trainings.h"
 	"user.h"
+
+1600837416 source:/home/utn-discord/UTN/Lab2/TP2/LARA/report.cpp
+	<iostream>
+	"string.h"
+	"ui.h"
+	"rlutil.h"
+	"trainings.h"
+	"user.h"
+	"report.h"
+
+1600838034 /home/utn-discord/UTN/Lab2/TP2/LARA/report.h
 
