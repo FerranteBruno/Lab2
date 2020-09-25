@@ -179,27 +179,6 @@ void most(User *vec, float *vCalories, int cant){
     }
 }
 
-void most2(int ID, float *vCalories, int cant){
-
-    int i, j, posmax;
-    float aux2;
-
-    for(i=0; i<cant-1; i++){
-        posmax = i;
-
-        for(j=i+1; j<cant; j++){
-            if (vCalories[j] > vCalories[posmax]){
-                posmax = j;
-            }
-        }
-        aux1 = vec[i];
-        aux2 = vCalories[i];
-        vec[i] = vec[posmax];
-        vCalories[i] = vCalories[posmax];
-        vec[posmax] = aux1;
-        vCalories[posmax] = aux2;
-    }
-}
 
 void report1(){
     cls();
