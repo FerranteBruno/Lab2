@@ -167,7 +167,7 @@ void menuReports() {
                 report1();
             break;
             case 2:
-                report2();
+                report22();
             break;
             case 0:
                 return;

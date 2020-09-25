@@ -22,6 +22,17 @@ User read_user(int pos){
     return reg;
 }
 
+int read_user2(User *vec, int cant){
+    int c;
+    FILE *p = fopen(FILE_USERS, "rb");
+    if (p == NULL){
+        return 0;
+    }
+    c = fread(vec, sizeof(User), cant, p);
+    fclose(p);
+    return c;
+}
+
 int quantity_of_users(){
     FILE *p = fopen(FILE_USERS, "rb");
     if (p == NULL){
@@ -304,3 +315,6 @@ bool delete_user(){
     }
 
 }
+
+
+

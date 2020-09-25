@@ -85,24 +85,17 @@ void proAverage(float average){
     }
 }
 
-void report2(){
+/*void report11(){
     cls();
 
     int pos, ID;
 
+    Trainings *vCalories;
 
-    User *vUser;
-    Trainings *vTrainings;
-
-    vUser = (User *) malloc(sizeof(User) * quantity_of_users());
-    if (avg == NULL){
-
-        return;
-    }
-    vTrainings = (Trainings *) malloc(sizeof(Trainings) * quantity_of_trainings());
+    vCalories = (Trainings *) malloc(sizeof(Trainings) * quantity_of_trainings());
     if (avg == NULL){
         return;
-        free(vUser);
+        free(vCalories);
     }
 
     User reg;
@@ -126,19 +119,193 @@ void report2(){
 
     int cant =  quantity_of_trainings();
 
+    int i, j, posmax;
+    int aux1;
+
+
+
                 for(int i = 0; i<cant; i++){
                 Trainings reg = read_training(i);
                     if ((reg.userID == pos+1) && (reg.t_status = true)){
                         total++;
+                    }
                 }
             }
             cout << "Total de entrenamientos: " << total;
+
+
+
+
+
 
     anykey();
 
     free(vTrainings);
     free(vUser);
+}*/
+
+/*void calories_trainings(float *vec){
+    int cant = quantity_of_trainings();
+    for(int i=0; i<cant; i++){
+        Trainings aux = read_training(i);
+        pos = search_user(aux.);
+        vec[i] += aux.calories;
+    }
+}
+for(int i = 0; i<cant; i++){
+                Trainings reg = read_training(i);
+                    if ((reg.userID == pos+1) && (reg.t_status = true)){
+                        total+= reg.calories;
+                    }
+                }
+            }
+*/
+
+void cal_total(float *vec){
+    int cant = quantity_of_trainings(), pos;
+    for(int i=0; i<cant; i++){
+        Trainings reg = read_training(i);
+        pos = search_user(reg.userID);
+        if (reg.t_status = true){
+        vec[pos] += reg.calories;
+        }
+    }
 }
 
 
+/*void report11(){
+    cls();
+
+    int pos, ID;
+
+    float *vCalories;
+    User *vec;
+
+    vCalories = (float *) malloc(sizeof(Trainings) * quantity_of_trainings());
+    if (vCalories == NULL){
+        return;
+        free(vCalories);
+    }
+
+    vec = (User *) malloc(sizeof(User) * quantity_of_users());
+    if (vec == NULL){
+        return;
+        free(vCalories);
+        free(vec);
+    }
+    set0(vCalories, quantity_of_trainings());
+
+    if (read_user(vec, quantity_of_users()) == cant_participantes){
+        totalizar_capturas(kgs);
+        podio(vec, kgs, cant_participantes);
+
+    User reg;
+    cout << "Ingrese código de usuario: ";
+    cin >> ID;
+
+    pos = search_user(ID);
+
+    if (pos >= 0){
+    cout << "El usuario elegido es: " << endl;
+        read_user(pos);
+        cout << "Nombres: "<< reg.name <<endl;
+        cout << "Apellido: "<< reg.lastname <<endl;
+        cout << endl;
+    }
+    else{
+        msj("Código de usuario invalido", 15, 3);
+        cout << endl;
+    }
+
+
+    /*cal_total(vCalories);
+            cout << "Total de calorias: " << *vCalories;
+
+    anykey();
+
+    free(vCalories);
+}
+*/
+void report22(){
+    cls();
+
+    int pos, ID;
+
+    float *vCalories;
+    User *vec;
+
+
+    vCalories = (float *) malloc(sizeof(Trainings) * quantity_of_trainings());
+    if (vCalories == NULL){
+        return;
+        free(vCalories);
+    }
+
+    vec = (User *) malloc(sizeof(User) * quantity_of_users());
+    if (vec == NULL){
+        return;
+        free(vCalories);
+        free(vec);
+    }
+    set0(vCalories, quantity_of_trainings());
+
+    if (read_user2(vec, quantity_of_users()) == quantity_of_users()){
+        cal_total(vCalories);
+        most(vec, vCalories, quantity_of_users());
+
+    int i=0, c=0;
+        cout << left;
+        while(c<1){
+
+            if (vec[i].status == true){
+                c++;
+                if (c == 1){
+                    setColor(BLUE);
+                }
+                cout << "Puesto #" << c << endl;
+                cout << vec[i].lastname << endl;
+                cout << vec[i].name << endl;
+                cout << vCalories[i] << endl;
+                cout << endl;
+            }
+            i++;
+        }
+    }
+    else{
+        msj("Hubo un error al reportar.", APP_FORECOLOR, APP_ERRORCOLOR);
+    }
+
+
+
+    cal_total(vCalories);
+            cout << "Total de calorias: " << *vCalories;
+
+    anykey();
+
+    free(vCalories);
+}
+
+
+void most(User *vec, float *vCalories, int cant){
+
+    int i, j, posmax;
+    User aux1;
+    float aux2;
+
+    for(i=0; i<cant-1; i++){
+        posmax = i;
+
+        for(j=i+1; j<cant; j++){
+            if (vCalories[j] > vCalories[posmax]){
+                posmax = j;
+            }
+        }
+        aux1 = vec[i];
+        aux2 = vCalories[i];
+        vec[i] = vec[posmax];
+        vCalories[i] = vCalories[posmax];
+        vec[posmax] = aux1;
+        vCalories[posmax] = aux2;
+    }
+}
 

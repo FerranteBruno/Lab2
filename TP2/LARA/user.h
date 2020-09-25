@@ -26,6 +26,7 @@ bool save_user(User);
 bool save_user(User, int);
 void list_user_by_id();
 bool delete_user();
+int read_user2(User *vec, int cant);
 
 
 #endif // USER_H_INCLUDED
