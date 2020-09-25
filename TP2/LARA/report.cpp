@@ -14,7 +14,7 @@ void set0(float *v, int t){
     }
 }
 
-void report1(){
+/*void report1(){
     cls();
 
     float *average;
@@ -32,7 +32,7 @@ void report1(){
 
 
     free(average);
-}
+}*/
 
 
 float avg(float *average){
@@ -179,3 +179,76 @@ void most(User *vec, float *vCalories, int cant){
     }
 }
 
+void most2(int ID, float *vCalories, int cant){
+
+    int i, j, posmax;
+    float aux2;
+
+    for(i=0; i<cant-1; i++){
+        posmax = i;
+
+        for(j=i+1; j<cant; j++){
+            if (vCalories[j] > vCalories[posmax]){
+                posmax = j;
+            }
+        }
+        aux1 = vec[i];
+        aux2 = vCalories[i];
+        vec[i] = vec[posmax];
+        vCalories[i] = vCalories[posmax];
+        vec[posmax] = aux1;
+        vCalories[posmax] = aux2;
+    }
+}
+
+void report1(){
+    cls();
+
+    int pos, ID;
+
+    float *vCalories;
+
+
+    vCalories = (float *) malloc(sizeof(Trainings) * quantity_of_trainings());
+    if (vCalories == NULL){
+        return;
+        free(vCalories);
+    }
+
+    cout << "ID: ";
+    cin >> ID;
+    pos = search_user(ID);
+
+    set0(vCalories, quantity_of_trainings());
+
+    int cant =  quantity_of_trainings();
+
+
+                        int i, j, posmax;
+                            float aux2;
+
+                            if(reg.userID == pos){
+                            for(i=0; i<cant-1; i++){
+                                Trainings reg = read_training(i);
+                                posmax = i;
+
+                                i
+                                for(j=i+1; j<cant; j++){
+                                    if (vCalories[j] > vCalories[posmax]){
+                                        posmax = j;
+                                    }
+                                }
+                                aux2 = vCalories[i];
+                                vCalories[i] = vCalories[posmax];
+                                vCalories[posmax] = aux2;
+                            }
+                            }
+
+
+            cout << "Entrenamiento con mas calorias " << *vCalories << endl;
+
+
+    anykey();
+
+    free(vCalories);
+}
