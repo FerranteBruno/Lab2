@@ -146,8 +146,6 @@ void report22(){
     }
 
 
-
-    cal_total(vCalories);
             cout << "Total de calorias: " << *vCalories;
 
     anykey();
