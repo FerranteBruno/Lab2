@@ -180,6 +180,7 @@ void most(User *vec, float *vCalories, int cant){
 }
 
 
+
 void report1(){
     cls();
 
@@ -206,12 +207,12 @@ void report1(){
                         int i, j, posmax;
                             float aux2;
 
-                            if(reg.userID == pos){
+
                             for(i=0; i<cant-1; i++){
                                 Trainings reg = read_training(i);
                                 posmax = i;
 
-                                i
+                                if(reg.userID == pos){
                                 for(j=i+1; j<cant; j++){
                                     if (vCalories[j] > vCalories[posmax]){
                                         posmax = j;
