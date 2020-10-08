@@ -32,13 +32,15 @@ using namespace std;
 
                 Ocupacion += Cap;
 
-                cout << "Se agrego a la botella " << Cap << " cm2 a la botella" << endl;
+                cout << "Se agrego " << Cap << " cm2 a la botella" << endl;
                 system("pause");
                 system("cls");
                 }
                 else
                 {
+                    Ocupación = Capacida;
                     cout << "La botella no puede ser llenada mas de su capacidad maxima,\nla cual es: " << Capacidad <<  endl;
+                    cout << "Se agrego " << Capacidad << " cm2 a la botella" << endl;
                 }
 
         }
