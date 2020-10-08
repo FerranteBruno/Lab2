@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1602126114 source:c:\users\darkz\onedrive\escritorio\utn\progra 2\clase 3\ej1\laracola\main.cpp
+	<iostream>
+	"botella_class.h"
+	"MenuPrincipal.h"
+
+1602134910 source:c:\users\darkz\onedrive\escritorio\utn\progra 2\clase 3\ej1\laracola\botella_class.cpp
+	<iostream>
+	"botella_class.h"
+	<stdlib.h>
+
+1602134910 c:\users\darkz\onedrive\escritorio\utn\progra 2\clase 3\ej1\laracola\botella_class.h
+
+1602135199 c:\users\darkz\onedrive\escritorio\utn\progra 2\clase 3\ej1\laracola\menuprincipal.h
+
+1602134377 source:c:\users\darkz\onedrive\escritorio\utn\progra 2\clase 3\ej1\laracola\menuprincipal.cpp
+	<iostream>
+	"MenuPrincipal.h"
+	"botella_class.h"
+
